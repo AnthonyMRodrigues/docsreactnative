@@ -155,7 +155,7 @@ Por você não conseguir buildar qualquer código nativo usando o "Creat React N
 
 Because you don't build any native code when using Create React Native App to create a project, it's not possible to include custom native modules beyond the React Native APIs and components that are available in the Expo client app.
 
-Se você sabe o que será necessário incluir no seu código nativo,
+Se você sabe o que será necessário incluir no seu código nativo, 'Create React Native App' ainda é um bom jeito de começar.
 
 If you know that you'll eventually need to include your own native code, Create React Native App is still a good way to get started. In that case you'll just need to "[eject](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#ejecting-from-create-react-native-app)" eventually to create your own native builds. If you do eject, the "Building Projects with Native Code" instructions will be required to continue working on your project.
 
