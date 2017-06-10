@@ -144,14 +144,18 @@ Se você está curioso em aprender mais sobre o React Native continue no [Tutori
 
 ### Rodando seu aplicativo em um simulador virtual.
 
-Criar a sua aplicação React Native é realmente muito fácil 
-Create React Native App makes it really easy to run your React Native app on a physical device without setting up a development environment. If you want to run your app on the iOS Simulator or an Android Virtual Device, please refer to the instructions for building projects with native code to learn how to install Xcode and set up your Android development environment.
+Criar a sua aplicação React Native fica mais fácil rodar o aplicativo em um dispositivo fisico sem configurar um ambiente de desenvolvimento. Se você desejar rodar o seu aplicativo em um simulador iOS ou um dispositivo virtual android, por favor vá nas instruções para buildar projetos com códigps nativos para aprender como instalar o Xcode e configurar o seu ambiente de desenvolvimento Android.
 
-Once you've set these up, you can launch your app on on an Android Virtual Device by running `npm run android`, or on the iOS Simulator by running `npm run ios` (macOS only).
+Uma vez que você tenha configurado, você pode lançar seu aplicativo em um dispositivo virtual Android rodando o comando `npm run android`, ou em um simulador iOS rodando o comando `npm run ios` (Somente no macOS).
 
-### Caveats
+
+### Ressalvas - Confirmar se está correto
+
+Por você não conseguir buildar qualquer código nativo usando o "Creat React Native App" para criar um projeto, não é possível incluir um módulo nativo customizado além das APIs do React Native e componentes que estão disponiveis no aplicativo Expo.
 
 Because you don't build any native code when using Create React Native App to create a project, it's not possible to include custom native modules beyond the React Native APIs and components that are available in the Expo client app.
+
+Se você sabe o que será necessário incluir no seu código nativo,
 
 If you know that you'll eventually need to include your own native code, Create React Native App is still a good way to get started. In that case you'll just need to "[eject](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#ejecting-from-create-react-native-app)" eventually to create your own native builds. If you do eject, the "Building Projects with Native Code" instructions will be required to continue working on your project.
 
