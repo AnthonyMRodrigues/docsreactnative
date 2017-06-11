@@ -1,6 +1,6 @@
 # React Native [![Build Status](https://travis-ci.org/facebook/react-native.svg?branch=master)](https://travis-ci.org/facebook/react-native) [![Circle CI](https://circleci.com/gh/facebook/react-native.svg?style=shield)](https://circleci.com/gh/facebook/react-native) [![npm version](https://badge.fury.io/js/react-native.svg)](https://badge.fury.io/js/react-native)
 
-React Native permite vocẽ a crie experiências de plataformas nativas usando uma consistente experiência de desenvolvimento baseado no JavaScript e [React](https://facebook.github.io/react). O focodo React Native é desenvolver de forma eficiente para a todas as plataformas que você deseja - aprenda uma vez, escreva em qualquer lugar. Facebook usa o React Native na produção de multiplos aplicativos e irá continur investindo no  React Native.
+React Native permite vocẽ a crie experiências de plataformas nativas usando uma consistente experiência de desenvolvimento baseado no JavaScript e [React](https://facebook.github.io/react). O foco do React Native é desenvolver de forma eficiente para a todas as plataformas que você deseja - aprenda uma vez, escreva em qualquer lugar. Facebook usa o React Native na produção de multiplos aplicativos e irá continuar investindo no React Native.
 
 Suporta operações em sistemas >= Android 4.1 (API 16) e >= iOS 8.0. 
  
@@ -16,7 +16,7 @@ Suporta operações em sistemas >= Android 4.1 (API 16) e >= iOS 8.0.
 
 ## Introdução
 
-Veja o oficial [React Native website](https://facebook.github.io/react-native/) para uma introdução ao React Native.
+Veja o [React Native website](https://facebook.github.io/react-native/) oficial para uma introdução ao React Native.
 
 ## Iniciando
 
@@ -36,18 +36,18 @@ Por favor use os recursos da comunidade para conseguir ajuda. Nós usamos as iss
 - Junte-se ao #reactnative no IRC: chat.freenode.net
 - Se você tiver encontrado algum bug, por favor [Abra uma issue](#opening-issues)
 
-## Documentaçãp
+## Documentação
 
 [A Documentação do website](https://facebook.github.io/react-native/docs/) é dividida em multiplas seções.
 
-- Lá existem **Guias** dos tópicos de discussão tipo [debugando o código](https://facebook.github.io/react-native/docs/debugging.html), [Intefração com um aplicativo existente](https://facebook.github.io/react-native/docs/integration-with-existing-apps.html), e [o sistema de resposta do sinal](https://facebook.github.io/react-native/docs/gesture-responder-system.html).
--A seção dos **Components** cobre os componentes do React como as [`View`](https://facebook.github.io/react-native/docs/view.html) e os [`Button`](https://facebook.github.io/react-native/docs/button.html).
+- Lá existem **Guias** dos tópicos de discussão tipo [debugando o código](https://facebook.github.io/react-native/docs/debugging.html), [Interação com um aplicativo existente](https://facebook.github.io/react-native/docs/integration-with-existing-apps.html), e [o sistema de resposta do sinal](https://facebook.github.io/react-native/docs/gesture-responder-system.html).
+- A seção dos **Components** cobre os componentes do React como as [`View`](https://facebook.github.io/react-native/docs/view.html) e os [`Button`](https://facebook.github.io/react-native/docs/button.html).
 - A seção de **APIs** cobre outras bibliotecas como [Animações](https://facebook.github.io/react-native/docs/animated.html) e [StyleSheet](https://facebook.github.io/react-native/docs/stylesheet.html)  que não são realmente componentes do React
 - Finalmente, o React Native providencia um pequeno número de **Polyfills** que são semelhantes a da web.
 
-Outra grande coisa a se aprender são sobre os componentes e APIs inclusas com o React Native é só ler a sua código fonte. Dê uma olhada no diretório `Libraries/Components` para ver sobre os componentes, tipo `ScrollView` e `TextInput`, por exemplo. O exemplo do RNTester também é uma demostração dos vários caminhos para se usar esses componentes. A partir do código você pode ter uma melhor compreensão sobre cada componente e sobre as APIs.
+Outra grande coisa a se aprender são sobre os componentes e APIs inclusas com o React Native é só ler o seu código fonte. Dê uma olhada no diretório `Libraries/Components` para ver sobre os componentes, tipo `ScrollView` e `TextInput`, por exemplo. O exemplo do RNTester também é uma demostração de várias maneiras para se usar esses componentes. A partir do código você pode ter uma melhor compreensão sobre cada componente e sobre as APIs.
 
-A documentação do React Native somente discute sobre os componentes,APIs e tópicos especificos do React Native (React no iOS e no Android). Para obter a documentação da API do React, que é compartilhada entre a do React Native e React DOM, referencie-se a [Documentação React](https://facebook.github.io/react/).
+A documentação do React Native é somente para discução sobre os componentes, APIs e tópicos especificos do React Native (React no iOS e no Android). Para obter a documentação da API do React, que é compartilhada entre a do React Native e React DOM, referencie-se a [Documentação React](https://facebook.github.io/react/).
 
 
 ## Exemplo
@@ -81,7 +81,7 @@ React Native é um desenvolvimento ativo, Veja o guia no [atualizando o React Na
 
 ## Abrindo Issues
 
-Se você encontrar algum bug no React Native nós gostariamos de ouvir sobre. Procure as [issues existentes](https://github.com/facebook/react-native/issues) e procure ter certeza se o seu prpblema já não foi relatado antes de abrir uma nova issue. É útil você incluir a última versão do React Native e do sistema operacional que esteja usando. Por favor inclua uma forma de identificar e reproduzir o caso quando for apropriado.
+Se você encontrar algum bug no React Native nós gostariamos de ouvir sobre. Procure as [issues existentes](https://github.com/facebook/react-native/issues) e procure ter certeza se o seu problema já não foi relatado antes de abrir uma nova issue. É útil você incluir a última versão do React Native e do sistema operacional que esteja usando. Por favor inclua uma forma de identificar e reproduzir o caso quando for apropriado.
 
 As issues do GitHub são para reportar bug e novas solicitações de features. Para ajuda e outras questões sobre como usar o React Native tenha certeza se está listada na seção [Conseguindo Ajuda](#getting-help). em particular o [Canny](https://react-native.canny.io/feature-requests) é uma boa maneira de sinalizar o seu interese em uma feature ou issue. Existem alguns recursos disponiveis para manipulação de issues e manutenção das issues abertas nós podemos responder de forma rápida com o suporte.
 
