@@ -366,7 +366,7 @@ Selecione as "SDK Platforms" do SDK Manager, então marque o checkbox próximo a
 
 <block class="native windows mac linux android" />
 
-Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `23.0.1` is selected.
+Depois selecione a aba "SDK Tools" e marque o checkbox próximo a "Show Package Details". Olhe a expansão do "Android SDK Build-Tools", então tenha certeza que a `23.0.1` está selecionada.
 
 <block class="native mac android" />
 
@@ -378,7 +378,7 @@ Next, select the "SDK Tools" tab and check the box next to "Show Package Details
 
 <block class="native windows mac linux android" />
 
-Finally, click "Apply" to download and install the Android SDK and related build tools.
+Finalmente clique em "Apply" para realizar o download e instalação da SDK do Android e suas ferramentas relacionadas.
 
 <block class="native mac android" />
 
@@ -390,13 +390,13 @@ Finally, click "Apply" to download and install the Android SDK and related build
 
 <block class="native mac windows linux android" />
 
-#### 3. Configure the ANDROID_HOME environment variable
+#### 3. Configurando a váriavel de ambiente ANDROID_HOME
 
-The React Native tools require some environment variables to be set up in order to build apps with native code.
+As ferramentas do React Native necessitam de algumas váriaveis de ambientes setadas corretamente para criar o aplicativo com código nativo.
 
 <block class="native mac linux android" />
 
-Add the following lines to your `$HOME/.bash_profile` config file:
+Adicione as seguintes linhas no seu arquivo de configuração `$HOME/.bash_profile`:
 
 <block class="native mac android" />
 
@@ -416,19 +416,19 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 <block class="native mac linux android" />
 
-> `.bash_profile` is specific to `bash`. If you're using another shell, you will need to edit the appropriate shell-specific config file.
+>  O `.bash_profile` é especifico do `bash`. Se você usa outro shell, então você precisa editar o arquivo de configuração especifico do seu shell.
 
-Type `source $HOME/.bash_profile` to load the config into your current shell. Verify that ANDROID_HOME has been added to your path by running `echo $PATH`.
+Digite `source $HOME/.bash_profile` para carregar o arquivo de configuração do seu shell atual. Verifique se a váriavel de ambiente ANDROID_HOME foi adicionada ao seu PATH rodando o comando `echo $PATH`.
 
-> Please make sure you use the correct Android SDK path. You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
+> Por favor tenha certeza que está usando o Path do Android SDK correto. Você pode encontrar o caminho atual da SDK do Android Studio no menu "Preferences", depois ir em **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
 <block class="native windows android" />
 
-Open the System pane under **System and Security** in the Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
+Abra o painel do sistenha em **System and Security** vá até o painel de controle, então clique em **Change settings...**. Abra a opção **Advanced** e clique em **Environment Variables...**. Clique em **New...** para criar uma nova váriavel `ANDROID_HOME` para o path do seu Android SDK: 
 
 ![ANDROID_HOME Environment Variable](img/AndroidEnvironmentVariableANDROID_HOME.png)
 
-The SDK is installed, by default, at the following location:
+O SDK é instalado por padrão no seguinte diretório:
 
 ```powershell
 c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk
