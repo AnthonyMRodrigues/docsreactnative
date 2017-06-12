@@ -62,7 +62,7 @@ AppRegistry.registerComponent(
   () => IScrolledDownAndWhatHappenedNextShockedMe);
 ```
 
-ScrollViews podem ser configurados para permitir paginação através de visualizadores que usam gestos de deslizamento ao usarmos as propriedades `pagingEnabled`. Deslizar horizontalmente por entre visualizadores pode também ser implementado no Android usando o componente [ViewPagerAndroid](docs/viewpagerandroid.html).
+ScrollViews podem ser configurados para permitir paginação por gestos de deslizamento através de visualizadores ao usarmos as propriedades `pagingEnabled`. Deslizar horizontalmente por entre visualizadores pode também ser implementado no Android usando o componente [ViewPagerAndroid](docs/viewpagerandroid.html).
 
 Um ScrollView num item individual pode ser usado para permitir ao usuário dar zoom no conteúdo. Configure as propriedades `maximumZoomScale` e `minimumZoomScale` e o seu usuário será capaz de usar os gestos expandir e beliscar para aumentar e diminuir o zoom.
 
