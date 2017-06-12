@@ -8,11 +8,11 @@ next: integration-with-existing-apps
 previous: direct-manipulation
 ---
 
-Components in React Native are [styled using JavaScript](docs/style.html). Color properties usually match how [CSS works on the web](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value).
+Componentes em React Native são [estilizados usando JavaScript](docs/style.html). As propriedades das cores geralmente coincidem com a maneira como o [CSS funciona na web](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value).
 
-### Red-green-blue
+### Vermelho-Verde-Azul (Red-Green-Blue)
 
-React Native supports `rgb()` and `rgba()` in both hexadecimal and functional notation:
+O React Native tem suporte a `rgb()` e `rgba()`, tanto em notações hexadecimal e funcional:
 
 - `'#f0f'` (#rgb)
 - `'#ff00ff'` (#rrggbb)
@@ -23,22 +23,22 @@ React Native supports `rgb()` and `rgba()` in both hexadecimal and functional no
 - `'#f0ff'` (#rgba)
 - `'#ff00ff00'` (#rrggbbaa)
 
-### Hue-saturation-lightness
+### Matiz-Saturação-Claridade (Hue-Saturation-Lightness)
 
-`hsl()` and `hsla()` is supported in functional notation:
+`hsl()` e `hsla()` são supportados em notação funcional:
 
 - `'hsl(360, 100%, 100%)'`
 - `'hsla(360, 100%, 100%, 1.0)'`
 
 ### `transparent`
 
-This is a shortcut for `rgba(0,0,0,0)`:
+Isto é um atalho para `rgba(0,0,0,0)`:
 
 - `'transparent'`
 
-### Named colors
+### Cores por nome
 
-You can also use color names as values. React Native follows the [CSS3 specification](http://www.w3.org/TR/css3-color/#svg-color):
+Você pode também usar nomes de cores como valores. O React Native segue a [especificação CSS3](http://www.w3.org/TR/css3-color/#svg-color):
 
 - <color aliceblue /> aliceblue (#f0f8ff)
 - <color antiquewhite /> antiquewhite (#faebd7)
