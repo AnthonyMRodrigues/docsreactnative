@@ -4,15 +4,15 @@ React Native permite vocẽ a crie experiências de plataformas nativas usando u
 
 Suporta operações em sistemas >= Android 4.1 (API 16) e >= iOS 8.0. 
  
-- [Iniciando](#getting-started-portuguese)
-- [Conseguindo ajuda](#getting-help)
-- [Documentação](#documentation)
-- [Exemplos](#examples)
-- [Estendendo o React Native](#extending-react-native)
-- [Atualizando](#upgrading)
-- [Abrindo Issues](#opening-issues)
-- [Contribuindo](#contributing)
-- [Licença](#license)
+- [Iniciando](#iniciando)
+- [Conseguindo ajuda](#conseguindo-ajuda)
+- [Documentação](#documentação)
+- [Exemplos](#examplo)
+- [Ampliando o React Native](#ampliando-o-react-native)
+- [Atualizando](#atualizando)
+- [Abrindo Issues](#abrindo-issues)
+- [Contribuindo](#contribuindo)
+- [Licença](#licença)
 
 ## Introdução
 
