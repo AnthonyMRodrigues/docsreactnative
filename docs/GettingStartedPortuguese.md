@@ -509,7 +509,7 @@ Selecione a tela de "x86 Images", então procure por **Marshmallow** API Level 2
 
 ![Install HAXM](img/CreateAVDx86Windows.png)
 
-> If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows) to set it up, then go back to the AVD Manager.
+> Se você não tem o HAXM instalado, clique em "Install HAXM" ou siga [essas instruções](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows) para realizar as configurações, e então volte ao AVD Manager.
 
 ![AVD List](img/AVDManagerWindows.png)
 
@@ -517,49 +517,48 @@ Selecione a tela de "x86 Images", então procure por **Marshmallow** API Level 2
 
 ![Install HAXM](img/CreateAVDx86MacOS.png)
 
-> If you don't have HAXM installed, follow [these instructions](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-mac-os-x) to set it up, then go back to the AVD Manager.
+> Se você não tem o HAXM instalado, clique em "Install HAXM" ou siga [essas instruções](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-mac-os-x) para realizar as configurações, e então volte ao AVD Manager.
 
 ![AVD List](img/AVDManagerMacOS.png)
 
 <block class="native mac windows linux android" />
 
-Click "Next" then "Finish" to create your AVD. At this point you should be able to click on the green triangle button next to your AVD to launch it, then proceed to the next step.
+Clique em "Next" então "Finish" cara criar o seu Android Virtual. Nesse ponto já deve estar disponivel para você clicar no boão verde para poder lançar o Android Virtual, então prossiga até o próximo passo.
 
 <block class="native mac ios" />
 
-## Running your React Native application
+## Rodando sua aplicação React Native
 
-Run `react-native run-ios` inside your React Native project folder:
+Rodr `react-native run-ios` dentro do diretório do seu projeto React Native:
 
 ```
 cd AwesomeProject
 react-native run-ios
 ```
 
-You should see your new app running in the iOS Simulator shortly.
+Você deverá ver seu aplicativo rodando no simuldor de iOS em breve.
 
 ![AwesomeProject on iOS](img/iOSSuccess.png)
 
-`react-native run-ios` is just one way to run your app. You can also run it directly from within Xcode or [Nuclide](https://nuclide.io/).
+`react-native run-ios` é só uma maneira de rodar o seu aplicativo. Você também pode rodar diretamente com o Xcode ou [Nuclide](https://nuclide.io/).
 
-> If you can't get this to work, see the [Troubleshooting](docs/troubleshooting.html#content) page.
+> Se você não conseguir, veja a página de [Problemas](docs/troubleshooting.html#content)
 
-### Running on a device
+### Rodando em um aparelho
 
-The above command will automatically run your app on the iOS Simulator by default. If you want to run the app on an actual physical iOS device, please follow the instructions [here](docs/running-on-device.html).
+O comando acima irá automaticamente rodar o seu aplicativo no simulador iOS padrão. Se você desejar rodar o aplicativo em um dispositivo fisico, por favor siga as instruções detalhadas [aqui](docs/running-on-device.html).
 
 <block class="native mac windows linux android" />
 
-## Running your React Native application
+## Rodando sua aplicação React Native
 
-Run `react-native run-android` inside your React Native project folder:
+Rode `react-native run-android` dentro do diretório do seu projeto React Native:
 
 ```
 cd AwesomeProject
 react-native run-android
 ```
-
-If everything is set up correctly, you should see your new app running in your Android emulator shortly.
+Se tudo ocorrer corretamene, você deverá ver seu novo aplicativo rodando no seu emulador de Android em breve.
 
 <block class="native mac android" />
 
@@ -571,48 +570,48 @@ If everything is set up correctly, you should see your new app running in your A
 
 <block class="native mac windows linux android" />
 
-`react-native run-android` is just one way to run your app - you can also run it directly from within Android Studio or [Nuclide](https://nuclide.io/).
+`react-native run-android` é só uma maneira de rodar o seu aplicativo - você pode também roda-lo diretamente do seu Android Studio ou [Nuclide](https://nuclide.io/).
 
-> If you can't get this to work, see the [Troubleshooting](docs/troubleshooting.html#content) page.
+> Se você não conseguir, veja a página de [Problemas](docs/troubleshooting.html#content);
 
 <block class="native mac ios android" />
 
-### Modifying your app
+### Modificando o seu aplicativo
 
-Now that you have successfully run the app, let's modify it.
+Agora que você rodou o seu aplicativo com successo, vamos modifica-lo.
 
 <block class="native mac ios" />
 
-- Open `index.ios.js` in your text editor of choice and edit some lines.
-- Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
+- Abra o `index.ios.js` no editor de texto de sua preferencia e edite algumas linhas.
+- Aperte `⌘R` no seu simulador de iOS para recarregar o aplicativo e suas mudanças.
 
 <block class="native mac android" />
 
-- Open `index.android.js` in your text editor of choice and edit some lines.
-- Press the `R` key twice or select `Reload` from the Developer Menu (`⌘M`) to see your changes!
+- Abra o `index.android.js` no editor de texto de sua preferencia e edite algumas linhas.
+- Aperte `R` duas vezes ou selecione `Reload` no seu menu de desenvolvimento (`⌘M`) para ver as mundanças.
 
 <block class="native windows linux android" />
 
-### Modifying your app
+### Modificando o seu aplicativo
 
-Now that you have successfully run the app, let's modify it.
+Agora que você rodou o seu aplicativo com successo, vamos modifica-lo.
 
-- Open `index.android.js` in your text editor of choice and edit some lines.
-- Press the `R` key twice or select `Reload` from the Developer Menu (`⌘M`) to see your changes!
+- Abra o `index.android.js` no editor de texto de sua preferencia e edite algumas linhas.
+- Aperte `R` duas vezes ou selecione `Reload` no seu menu de desenvolvimento (`⌘M`) para ver as mundanças.
 
 <block class="native mac ios android" />
 
-### That's it!
+### É isso!!
 
-Congratulations! You've successfully run and modified your first React Native app.
+Parabéms! Você teve sucesso em rodar e modificar sua primeira aplicação React Native.
 
 <center><img src="img/react-native-congratulations.png" width="150"></img></center>
 
 <block class="native windows linux android" />
 
-### That's it!
+### É isso!!
 
-Congratulations! You've successfully run and modified your first React Native app.
+Parabéms! Você teve sucesso em rodar e modificar sua primeira aplicação React Native.
 
 <center><img src="img/react-native-congratulations.png" width="150"></img></center>
 
