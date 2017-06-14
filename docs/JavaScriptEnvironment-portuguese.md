@@ -8,26 +8,26 @@ next: direct-manipulation
 previous: gesture-responder-system
 ---
 
-## JavaScript Runtime
+## Runtime de JavaScript
 
-When using React Native, you're going to be running your JavaScript code in two environments:
+Quando estiver usando o React Native, você vai estar rodando o seu código em JavaScript em dois ambientes:
 
-* On iOS simulators and devices, Android emulators and devices React Native uses [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore) which is the JavaScript engine that powers Safari. On iOS JSC doesn't use JIT due to the absence of writable executable memory in iOS apps.
-* When using Chrome debugging, it runs all the JavaScript code within Chrome itself and communicates with native code via WebSocket. So you are using [V8](https://code.google.com/p/v8/).
+* Para emuladores e dispositivos de iOS e Android, o React Native utiliza o [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore), que é o motor de JavaScript que move o Safari. No iOS, o JSC não utiliza JIT devido à ausência de memória executável gravável nos apps para iOS.
+* Ao utilizar a depuração do Chrome, ele roda todo o código de JavaScript dentro do próprio Chrome, e se comunica com o código nativo via WebSocket. Logo, você está utilizando o [V8](https://code.google.com/p/v8/).
 
-While both environments are very similar, you may end up hitting some inconsistencies. We're likely going to experiment with other JS engines in the future, so it's best to avoid relying on specifics of any runtime.
+Ao passo que ambos os ambientes são muito similares, você pode acabar se deparando com algumas inconsistências. Provavelmente iremos experimentar outros motores de JS no futuro; portanto é melhor evitar contar com as particularidades de quaisquer runtimes.
 
-## JavaScript Syntax Transformers
+## Transformadores de Sintaxe para JavaScript
 
-Syntax transformers make writing code more enjoyable by allowing you to use new JavaScript syntax without having to wait for support on all interpreters.
+Os transformadores de sintaxe faz do ato de escrever código mais aprazível, ao permite-lhe utilizar a nova sintaxe do JavaScript sem ter que aguardar pelo seu suporte para todos os interpretadores.
 
-As of version 0.5.0, React Native ships with the [Babel JavaScript compiler](https://babeljs.io). Check [Babel documentation](https://babeljs.io/docs/plugins/#transform-plugins) on its supported transformations for more details.
+Desde a sua versão 0.5.0, o React Native vem com o [compilador de JavaScript Babel](https://babeljs.io). Consulte a [documentação do Babel](https://babeljs.io/docs/plugins/#transform-plugins) sobre as transformações suportadas para mais detalhes.
 
-Here's a full list of React Native's [enabled transformations](https://github.com/facebook/react-native/blob/master/babel-preset/configs/main.js#L16).
+Aqui está uma lista completa das [transformações habilitadas](https://github.com/facebook/react-native/blob/master/babel-preset/configs/main.js#L16) do React Native.
 
 ES5
 
-* Reserved Words: `promise.catch(function() { });`
+* Palavras Reservadas: `promise.catch(function() { });`
 
 ES6
 
@@ -51,7 +51,7 @@ ES7
 * [Function Trailing Comma](https://github.com/jeffmo/es-trailing-function-commas): `function f(a, b, c,) { }`
 * [Async Functions](https://github.com/tc39/ecmascript-asyncawait): `async function doStuffAsync() { const foo = await doOtherStuffAsync(); }`;
 
-Specific
+Específicos
 
 * [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html): `<View style={{color: 'red'}} />`
 * [Flow](http://flowtype.org/): `function foo(x: ?number): string {}`
@@ -59,9 +59,9 @@ Specific
 
 ## Polyfills
 
-Many standards functions are also available on all the supported JavaScript runtimes.
+Muitas funções padrões estão também disponíveis para todos os runtimes de JavaScript suportados.
 
-Browser
+Navegador
 
 * [console.{log, warn, error, info, trace, table}](https://developer.chrome.com/devtools/docs/console-api)
 * [CommonJS require](https://nodejs.org/docs/latest/api/modules.html)
@@ -80,6 +80,6 @@ ES7
 
 * Object.{[entries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries), [values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values)}
 
-Specific
+Específico
 
 * `__DEV__`
