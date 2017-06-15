@@ -6,4 +6,4 @@ Na prática, descobrimos que os desenvolvedores não querem esta funcionalidade,
 
 Temos que ser cuidadosos quando fizermos este arredondamento. Você jamais vai querer trabalhar com valores com & sem arredondamento ao mesmo tempo, que com o tempo você vai acumulando erros de arredondamento. Mesmo tendo um único erro de arredondamento pode se revelar mortal; pois uma borda de apenas um pixel pode desaparecer, ou acabar ficando duas vezes maior.
 
-No React Native, tudo em JS e dentro do motor de layout trabalham com números arbitrários de precisão. É somente quando definimos as posições e as dimensões do elemento nativo no thread principal é que nós arredondamos. Além disso, o arredondamento é feito relativo à raiz ao invés do progenitor; novamente para se evitar de acumular erros de arredondamento.
+No React Native, tudo em JS e dentro do motor de layout trabalham com números arbitrários de precisão. É somente quando definimos a posição e as dimensões do elemento nativo no thread principal é que nós arredondamos. Além disso, o arredondamento é feito relativo à raiz ao invés do progenitor; novamente para se evitar de acumular erros de arredondamento.
