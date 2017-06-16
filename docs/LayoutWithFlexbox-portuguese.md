@@ -8,15 +8,15 @@ next: handling-text-input
 previous: height-and-width
 ---
 
-A component can specify the layout of its children using the flexbox algorithm. Flexbox is designed to provide a consistent layout on different screen sizes.
+Os componentes podem especificar o layout dos seus descendentes usando o algoritmo flexbox. O Flexbox é projetado para prover um layout consistente para diferentes tamanhos de tela.
 
-You will normally use a combination of `flexDirection`, `alignItems`, and `justifyContent` to achieve the right layout.
+Você normalmente utilizará uma combinação de `flexDirection`, `alignItems`, e `justifyContent` para se chegar ao layout correto.
 
-> Flexbox works the same way in React Native as it does in CSS on the web, with a few exceptions. The defaults are different, with `flexDirection` defaulting to `column` instead of `row`, and the `flex` parameter only supporting a single number.
+> O Flexbox funciona da mesma forma no React Native quanto no CSS na web, com algumas poucas exceções. Os defaults são diferentes; com o `flexDirection` predefinido com `column` ao invés de `row`, e o parâmetro `flex` com suporte apenas de um só número.
 
-#### Flex Direction
+#### Direcionamento Flex
 
-Adding `flexDirection` to a component's `style` determines the **primary axis** of its layout. Should the children be organized horizontally (`row`) or vertically (`column`)? The default is `column`.
+Adicionar `flexDirection` a um `style` do componente determina o **eixo primário** de seu layout. É para os descendentes serem organizados horizontalmente (`row`) ou verticalmente (`column`)? O default é `column`.
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -39,9 +39,9 @@ export default class FlexDirectionBasics extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
 ```
 
-#### Justify Content
+#### Justificar Conteúdo
 
-Adding `justifyContent` to a component's style determines the **distribution** of children along the **primary axis**. Should children be distributed at the start, the center, the end, or spaced evenly? Available options are `flex-start`, `center`, `flex-end`, `space-around`, and `space-between`.
+Adicionar `justifyContent` a um `style` do componente determina a **distribuição** dos descendentes ao longo do **eixo primário**. É para os descendentes serem distribuídos pelo começo, pelo centro, pelo final, ou espaçados uniformemente? As opções disponíveis são `flex-start`, `center`, `flex-end`, `space-around`, e `space-between`.
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -69,11 +69,11 @@ export default class JustifyContentBasics extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => JustifyContentBasics);
 ```
 
-#### Align Items
+#### Alinhar Itens
 
-Adding `alignItems` to a component's style determines the **alignment** of children along the **secondary axis** (if the primary axis is `row`, then the secondary is `column`, and vice versa). Should children be aligned at the start, the center, the end, or stretched to fill? Available options are `flex-start`, `center`, `flex-end`, and `stretch`.
+Adicionar `alignItems` a um `style` do componente determina o **alinhamento** dos descendentes ao longo do **eixo secundário** (se o eixo primário for `row`, então o secundário é `column`, e vice-versa). É para os descendentes serem alinhados pelo começo, pelo centro, pelo final, or alargados para ocupar tudo? As opções disponíveis são `flex-start`, `center`, `flex-end`, e `stretch`.
 
-> For `stretch` to have an effect, children must not have a fixed dimension along the secondary axis. In the following example, setting `alignItems: stretch` does nothing until the `width: 50` is removed from the children.
+> Para que o `stretch` tenha algum efeito, os descendentes não devem ter dimensão fixa ao longo do eixo secundário. No exemplo a seguir, definir `alignItems: stretch` não faz nada até que o `width: 50` seja removido dos descendentes.
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -103,8 +103,8 @@ export default class AlignItemsBasics extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
 ```
 
-#### Going Deeper
+#### Indo Mais Fundo
 
-We've covered the basics, but there are many other styles you may need for layouts. The full list of props that control layout is documented [here](./docs/layout-props.html).
+Cobrimos o básico; porém há muitos outros estilos que você pode precisar para os layouts. A lista completa das props que controlam o layout está documentada [aqui](./docs/layout-props.html).
 
-We're getting close to being able to build a real application. One thing we are still missing is a way to take user input, so let's move on to [learn how to handle text input with the TextInput component](docs/handling-text-input.html).
+Estamos já chegando perto de sermos capazes de desenvolver um aplicativo de verdade. Uma coisa que ainda está nos faltando é uma maneira de pegar o input do usuário; então vamos prosseguir para [aprendermos como operar a entrada de textos com o componente TextInput](docs/handling-text-input.html).
