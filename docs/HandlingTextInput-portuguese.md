@@ -8,11 +8,9 @@ next: handling-touches
 previous: flexbox
 ---
 
-[`TextInput`](docs/textinput.html#content) is a basic component that allows the user to enter text. It has an `onChangeText` prop that takes
-a function to be called every time the text changed, and an `onSubmitEditing` prop that takes a function to be called when the text is submitted.
+O [`TextInput`](docs/textinput.html#content) é um componente básico que permite ao usuário entrar com textos. Ele tem uma prop `onChangeText` que aceita uma função a ser chamada toda vez que o texto mudar, e uma prop `onSubmitEditing` que aceita uma função a ser chamada quando o texto for submetido.
 
-For example, let's say that as the user types, you're translating their words  into a different language. In this new language, every single word is written the same way: 🍕. So the sentence "Hello there Bob" would be translated
-as "🍕🍕🍕".
+Por exemplo, digamos que à medida que o usuário digita, você esteja traduzindo suas palavras em uma língua diferente. Neste novo idioma, cada palavra individual é escrita da mesma maneira: 🍕. Portanto a sentença "Hello there Bob" seria traduzida como "🍕🍕🍕".
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -30,10 +28,10 @@ export default class PizzaTranslator extends Component {
         <TextInput
           style={{height: 40}}
           placeholder="Type here to translate!"
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={text => this.setState({text})}
         />
         <Text style={{padding: 10, fontSize: 42}}>
-          {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
+          {this.state.text.split(' ').map(word => word && '🍕').join(' ')}
         </Text>
       </View>
     );
@@ -44,8 +42,8 @@ export default class PizzaTranslator extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => PizzaTranslator);
 ```
 
-In this example, we store `text` in the state, because it changes over time.
+Neste exemplo, armazenamos o `text` no `state`, porque ele muda com o tempo.
 
-There are a lot more things you might want to do with a text input. For example, you could validate the text inside while the user types. For more detailed examples, see the [React docs on controlled components](https://facebook.github.io/react/docs/forms.html), or the [reference docs for TextInput](docs/textinput.html).
+Tem muito mais coisas que você poderia querer fazer com um input de texto. Por exemplo, você poderia validar o texto dentro enquanto o usuário digita. Para mais exemplos detalhados, visite os [docs de React sobre componentes controlados](https://facebook.github.io/react/docs/forms.html), ou os [docs de referência para TextInput](docs/textinput.html).
 
-Text input is probably the simplest example of a component whose state naturally changes over time. Next, let's look at another type of component like this one that controls layout, and [learn about the ScrollView](docs/using-a-scrollview.html).
+Entrada de textos é provavelmente o exemplo mais simples dum componente cujo estado muda naturalmente com o tempo. A seguir, vamos dar uma olhada em um outro tipo de componente assim como este que controla o layout, e [aprender sobre o ScrollView](docs/using-a-scrollview.html).
