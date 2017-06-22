@@ -60,5 +60,5 @@ Num aplicativo de verdade, você provavelmente não estará a ajustar o estado c
 
 Quando o setState for chamado, BlinkApp re-renderizará o seu Component. Ao invocar setState de dentro do Timer, o componente re-renderizará toda vez que o Timer der tique-taque.
 
-O estado funciona da mesma forma como acontece no React; então para mais detalhes em como lidar com o estado, você pode considerar o [API React.Component](https://facebook.github.io/react/docs/component-api.html).
+O estado funciona da mesma forma como acontece no React; então para mais detalhes em como lidar com o estado, você pode dar uma olhada no [API do React.Component](https://facebook.github.io/react/docs/component-api.html).
 Nesta altura, você poderia estar chateado que a maioria dos nossos exemplos até agora utilizam monótonos textos pretos default. Para deixar as coisas mais bonitas, você terá que [aprender sobre Style](docs/style.html).
