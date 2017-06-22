@@ -56,7 +56,7 @@ export default class BlinkApp extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => BlinkApp);
 ```
 
-Num aplicativo de verdade, você provavelmente não estará a ajustar o estado com um temporizador. Você poderia ajustar o estado quando você tivesse novos dados chegando do servidor, ou das recebidas pelo usuário. Você pode também utilizar um contêiner de estados tais como o [Redux](http://redux.js.org/index.html) para controlar o seu fluxo de dados. Nesse caso você utilizaria o Redux para modificar o seu estado no lugar de chamar o `setState` diretamente.
+Num aplicativo de verdade, você provavelmente não estará a ajustar o estado com um temporizador. Você poderia ajustar o estado quando você tivesse novos dados chegando do servidor, ou das entradas pelo usuário. Você pode também utilizar um contêiner de estados tais como o [Redux](http://redux.js.org/index.html) para controlar o seu fluxo de dados. Nesse caso você utilizaria o Redux para modificar o seu estado no lugar de chamar o `setState` diretamente.
 
 Quando o setState for chamado, BlinkApp re-renderizará o seu Component. Ao invocar setState de dentro do Timer, o componente re-renderizará toda vez que o Timer der tique-taque.
 
