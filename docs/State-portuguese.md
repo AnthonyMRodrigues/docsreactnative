@@ -8,11 +8,11 @@ next: style
 previous: props
 ---
 
-There are two types of data that control a component: `props` and `state`. `props` are set by the parent and they are fixed throughout the lifetime of a component. For data that is going to change, we have to use `state`.
+Existem dois tipos de dados que controlam um componente: `props` e `state`. `props` são definidos pelo progenitor e mantêm-se fixos durante todo o tempo de existência dum componente. Para os dados que vão se modificar, temos que utilizar `state`.
 
-In general, you should initialize `state` in the constructor, and then call `setState` when you want to change it.
+Em geral, você deve inicializar o `state` no construtor, e então chamar `setState` quando quiser modificá-lo.
 
-For example, let's say we want to make text that blinks all the time. The text itself gets set once when the blinking component gets created, so the text itself is a `prop`. The "whether the text is currently on or off" changes over time, so that should be kept in `state`.
+Por exemplo, digamos que desejemos criar textos que pisquem o tempo todo. O texto em si é configurado uma vez só quando o componente de piscagem for criado; portanto o texto é em si uma `prop`. O "se acaso o texto esteje no momento ligado ou desligado" modifica-se com o tempo; logo isso deve ser guardado em `state`.
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -56,9 +56,9 @@ export default class BlinkApp extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => BlinkApp);
 ```
 
-In a real application, you probably won't be setting state with a timer. You might set state when you have new data arrive from the server, or from user input. You can also use a state container like [Redux](http://redux.js.org/index.html) to control your data flow. In that case you would use Redux to modify your state rather than calling `setState` directly.
+Num aplicativo de verdade, você provavelmente não estará a ajustar o estado com um temporizador. Você poderia ajustar o estado quando você tivesse novos dados chegando do servidor, ou das recebidas pelo usuário. Você pode também utilizar um contêiner de estados tais como o [Redux](http://redux.js.org/index.html) para controlar o seu fluxo de dados. Nesse caso você utilizaria o Redux para modificar o seu estado no lugar de chamar o `setState` diretamente.
 
-When setState is called, BlinkApp will re-render its Component. By calling setState within the Timer, the component will re-render every time the Timer ticks.
+Quando o setState for chamado, BlinkApp re-renderizará o seu Component. Ao invocar setState de dentro do Timer, o componente re-renderizará toda vez que o Timer der tique-taque.
 
-State works the same way as it does in React, so for more details on handling state, you can look at the [React.Component API](https://facebook.github.io/react/docs/component-api.html).
-At this point, you might be annoyed that most of our examples so far use boring default black text. To make things more beautiful, you will have to [learn about Style](docs/style.html).
+O estado funciona da mesma forma como acontece no React; então para mais detalhes em como lidar com o estado, você pode considerar o [API React.Component](https://facebook.github.io/react/docs/component-api.html).
+Nesta altura, você poderia estar chateado que a maioria dos nossos exemplos até agora utilizam monótonos textos pretos default. Para deixar as coisas mais bonitas, você terá que [aprender sobre Style](docs/style.html).
