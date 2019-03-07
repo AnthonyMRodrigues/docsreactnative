@@ -1,9 +1,6 @@
 ---
 id: troubleshooting
 title: Troubleshooting
-layout: docs
-category: Quick Start
-permalink: docs/troubleshooting.html
 ---
 
 These are some common issues you may run into while setting up React Native. If you encounter something that is not listed here, try [searching for the issue in GitHub](https://github.com/facebook/react-native/issues/).
@@ -14,7 +11,7 @@ The React Native packager runs on port 8081. If another process is already using
 
 #### Terminating a process on port 8081
 
-Run the following command on a Mac to find the id for the process that is listening on port 8081:
+Run the following command to find the id for the process that is listening on port 8081:
 
 ```
 $ sudo lsof -i :8081
@@ -36,7 +33,7 @@ You can configure the packager to use a port other than 8081 by using the `port`
 $ react-native start --port=8088
 ```
 
-You will also need to update your applications to load the JavaScript bundle from the new port.
+You will also need to update your applications to load the JavaScript bundle from the new port. If running on device from Xcode, you can do this by updating occurrences of `8081` to your chosen port in the `node_modules/react-native/React/React.xcodeproj/project.pbxproj` file.
 
 ### NPM locking error
 
@@ -49,7 +46,7 @@ sudo chown -R $USER /usr/local/lib/node_modules
 
 ### Missing libraries for React
 
-If you added React Native manually to your project, make sure you have included all the relevant dependencies that you are using, like `RCTText.xcodeproj`, `RCTImage.xcodeproj`. Next, the binaries built by these dependencies have to be linked to your app binary. Use the `Linked Frameworks and Binaries` section in the Xcode project settings. More detailed steps are here: [Linking Libraries](docs/linking-libraries-ios.html#content).
+If you added React Native manually to your project, make sure you have included all the relevant dependencies that you are using, like `RCTText.xcodeproj`, `RCTImage.xcodeproj`. Next, the binaries built by these dependencies have to be linked to your app binary. Use the `Linked Frameworks and Binaries` section in the Xcode project settings. More detailed steps are here: [Linking Libraries](linking-libraries-ios.md#content).
 
 If you are using CocoaPods, verify that you have added React along with the subspecs to the `Podfile`. For example, if you were using the `<Text />`, `<Image />` and `fetch()` APIs, you would need to add these in your `Podfile`:
 
@@ -63,6 +60,10 @@ pod 'React', :path => '../node_modules/react-native', :subspecs => [
 ```
 
 Next, make sure you have run `pod install` and that a `Pods/` directory has been created in your project with React installed. CocoaPods will instruct you to use the generated `.xcworkspace` file henceforth to be able to use these installed dependencies.
+
+#### React Native does not compile when being used as a CocoaPod
+
+There is a CocoaPods plugin called [cocoapods-fix-react-native](https://github.com/orta/cocoapods-fix-react-native) which handles any potential post-fixing of the source code due to differences when using a dependency manager.
 
 #### Argument list too long: recursive header expansion failed
 
@@ -99,9 +100,11 @@ react-native init --verbose
 ```
 
 ## Unable to start react-native package manager (on Linux)
+
 ### Case 1: Error "code":"ENOSPC","errno":"ENOSPC"
 
 Issue caused by the number of directories [inotify](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) (used by watchman on Linux) can monitor. To solve it, just run this command in your terminal window
+
 ```
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```

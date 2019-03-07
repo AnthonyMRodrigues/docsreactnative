@@ -1,11 +1,6 @@
 ---
 id: debugging
 title: Debugging
-layout: docs
-category: Guides
-permalink: docs/debugging.html
-next: performance
-previous: timers
 ---
 
 ## Enabling Keyboard Shortcuts
@@ -14,9 +9,9 @@ React Native supports a few keyboard shortcuts in the iOS Simulator. They are de
 
 ## Accessing the In-App Developer Menu
 
-You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator.
+You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on Mac OS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
 
-![](img/DeveloperMenu.png)
+![](/react-native/docs/assets/DeveloperMenu.png)
 
 > The Developer Menu is disabled in release (production) builds.
 
@@ -51,7 +46,12 @@ Warnings will be displayed on screen with a yellow background. These alerts are 
 
 As with a RedBox, you can use `console.warn()` to trigger a YellowBox.
 
-YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored: `console.ignoredYellowBox = ['Warning: ...'];`.
+YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored:
+
+```javascript
+import {YellowBox} from 'react-native';
+YellowBox.ignoreWarnings(['Warning: ...']);
+```
 
 In CI/Xcode, YellowBoxes can also be disabled by setting the `IS_TESTING` environment variable.
 
@@ -63,7 +63,7 @@ To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Deve
 
 Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer Tools](https://developer.chrome.com/devtools). You may also access the DevTools using keyboard shortcuts (`⌘⌥I` on macOS, `Ctrl` `Shift` `I` on Windows). You may also want to enable [Pause On Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) for a better debugging experience.
 
-> Note: the React Developer Tools Chrome extension does not work with React Native, but you can use its standalone version instead. Read [this section](docs/debugging.html#react-developer-tools) to learn how.
+> Note: the React Developer Tools Chrome extension does not work with React Native, but you can use its standalone version instead. Read [this section](debugging.md#react-developer-tools) to learn how.
 
 ### Debugging using a custom JavaScript debugger
 
@@ -72,6 +72,19 @@ To use a custom JavaScript debugger in place of Chrome Developer Tools, set the 
 The debugger will receive a list of all project roots, separated by a space. For example, if you set `REACT_DEBUGGER="node /path/to/launchDebugger.js --port 2345 --type ReactNative"`, then the command `node /path/to/launchDebugger.js --port 2345 --type ReactNative /path/to/reactNative/app` will be used to start your debugger.
 
 > Custom debugger commands executed this way should be short-lived processes, and they shouldn't produce more than 200 kilobytes of output.
+
+## Safari Developer Tools
+
+You can use Safari to debug the iOS version of your app without having to enable "Debug JS Remotely".
+
+* Enable Develop menu in Safari: `Preferences → Advanced → Select "Show Develop menu in menu bar"`
+* Select your app's JSContext: `Develop → Simulator → JSContext`
+* Safari's Web Inspector should open which has a Console and a Debugger
+
+However, there are some disadvantages:
+
+1. No sourcemaps when debugging
+2. Every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
 
 ## React Developer Tools
 
@@ -87,7 +100,7 @@ Now run `react-devtools` from the terminal to launch the standalone DevTools app
 react-devtools
 ```
 
-![React DevTools](img/ReactDevTools.png)
+![React DevTools](/react-native/docs/assets/ReactDevTools.png)
 
 It should connect to your simulator within a few seconds.
 
@@ -95,15 +108,15 @@ It should connect to your simulator within a few seconds.
 
 ### Integration with React Native Inspector
 
-Open the in-app developer menu and choose "Show Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
+Open the in-app developer menu and choose "Toggle Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
 
-![React Native Inspector](img/Inspector.gif)
+![React Native Inspector](/react-native/docs/assets/Inspector.gif)
 
 However, when `react-devtools` is running, Inspector will enter a special collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
 
-![React DevTools Inspector Integration](img/ReactDevToolsInspector.gif)
+![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.gif)
 
-You can choose "Hide Inspector" in the same menu to exit this mode.
+You can choose "Toggle Inspector" in the same menu to exit this mode.
 
 ### Inspecting Component Instances
 
@@ -115,7 +128,7 @@ Make sure that the dropdown in the top left corner of the Chrome console says `d
 
 Then select a React component in React DevTools. There is a search box at the top that helps you find one by name. As soon as you select it, it will be available as `$r` in the Chrome console, letting you inspect its props, state, and instance properties.
 
-![React DevTools Chrome Console Integration](img/ReactDevToolsDollarR.gif)
+![React DevTools Chrome Console Integration](/react-native/docs/assets/ReactDevToolsDollarR.gif)
 
 ## Performance Monitor
 
@@ -129,7 +142,7 @@ You can enable a performance overlay to help you debug performance problems by s
   <h3>Projects with Native Code Only</h3>
   <p>
     The remainder of this guide only applies to projects made with <code>react-native init</code>
-    or to those made with Create React Native App which have since ejected. For
+    or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
     more information about ejecting, please see
     the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
     the Create React Native App repository.
@@ -147,11 +160,11 @@ $ react-native log-android
 
 You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
 
-> If you're using Create React Native App, console logs already appear in the same terminal output as the packager.
+> If you're using Create React Native App or Expo CLI, console logs already appear in the same terminal output as the packager.
 
 ## Debugging on a device with Chrome Developer Tools
 
-> If you're using Create React Native App, this is configured for you already.
+> If you're using Create React Native App or Expo CLI, this is configured for you already.
 
 On iOS devices, open the file [`RCTWebSocketExecutor.m`](https://github.com/facebook/react-native/blob/master/Libraries/WebSocket/RCTWebSocketExecutor.m) and change "localhost" to the IP address of your computer, then select "Debug JS Remotely" from the Developer Menu.
 
@@ -162,46 +175,6 @@ On Android 5.0+ devices connected via USB, you can use the [`adb` command line t
 Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
 
 > If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.
-
-### Debugging with [Stetho](http://facebook.github.io/stetho/) on Android
-
-1. In ```android/app/build.gradle```, add these lines in the `dependencies` section:
-
-   ```gradle
-   compile 'com.facebook.stetho:stetho:1.3.1'
-   compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
-   ```
-
-2. In ```android/app/src/main/java/com/{yourAppName}/MainApplication.java```, add the following imports:
-
-   ```java
-   import com.facebook.react.modules.network.ReactCookieJarContainer;
-   import com.facebook.stetho.Stetho;
-   import okhttp3.OkHttpClient;
-   import com.facebook.react.modules.network.OkHttpClientProvider;
-   import com.facebook.stetho.okhttp3.StethoInterceptor;
-   import java.util.concurrent.TimeUnit;
-   ```
-
-3. In ```android/app/src/main/java/com/{yourAppName}/MainApplication.java``` add the function:
-   ```java
-   public void onCreate() {
-         super.onCreate();
-         Stetho.initializeWithDefaults(this);
-         OkHttpClient client = new OkHttpClient.Builder()
-         .connectTimeout(0, TimeUnit.MILLISECONDS)
-         .readTimeout(0, TimeUnit.MILLISECONDS)
-         .writeTimeout(0, TimeUnit.MILLISECONDS)
-         .cookieJar(new ReactCookieJarContainer())
-         .addNetworkInterceptor(new StethoInterceptor())
-         .build();
-         OkHttpClientProvider.replaceOkHttpClient(client);
-   }
-   ```
-
-4. Run  ```react-native run-android ```
-
-5. In a new Chrome tab, open: ```chrome://inspect```, then click on 'Inspect device' (the one followed by "Powered by Stetho").
 
 ## Debugging native code
 
