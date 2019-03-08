@@ -8,80 +8,33 @@ next: performance
 previous: timers
 ---
 
-## Enabling Keyboard Shortcuts
+Ativando Atalhos do Teclado
 
-React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
+## Ferramentas para desenvolvedores do Chrome
 
-## Accessing the In-App Developer Menu
+Para depurar o código JavaScript no Chrome, selecione "Depurar JS Remotamente" no Menu do Desenvolvedor. Isso abrirá uma nova guia em [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
 
-You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator.
+Selecione Ferramentas → Ferramentas do Desenvolvedor no menu do Chrome para abrir as [Ferramentas de desenvolvimento](https://developer.chrome.com/devtools). Você também pode acessar o DevTools usando atalhos de teclado (`⌘⌥I` no macOS, 'Ctrl''Shift''I' no Windows).  Você também pode querer ativar  [Pausar ao detectar exceções](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) para uma melhor experiência durante a depuração.
 
-![](img/DeveloperMenu.png)
+> Nota: A extensão no Google Chorme "React Developer Tools"  não funciona com o React Native, mas você pode usar sua versão autônoma. Leia [está seção](docs/debugging.html#react-developer-tools) para saber como.
 
-> The Developer Menu is disabled in release (production) builds.
+### Debugando usando um depurador JavaScript personalizado
 
-## Reloading JavaScript
+Para usar um depurador JavaScript personalizado no lugar das Ferramentas do desenvolvedor do Chrome, defina a variável de ambiente  `REACT_DEBUGGER` como um comando que iniciará seu depurador personalizado. Você pode então selecionar "Depurar JS Remotamente" no Menu do Desenvolvedor para iniciar a depuração.
 
-Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu. You can also press `⌘R` in the iOS Simulator, or tap `R` twice on Android emulators.
+O depurador receberá uma lista de todas as raízes do projeto, separadas por um espaço. Por exemplo, se você definir o `REACT_DEBUGGER="node /path/to/launchDebugger.js --port 2345 --type ReactNative"`, então o comando `node /path/to/launchDebugger.js --port 2345 --type ReactNative /path/to/reactNative/app` será usado para iniciar seu depurador.
 
-### Automatic reloading
+> Comandos de depuração personalizados executados dessa maneira devem ser processos de curta duração e não devem produzir mais de 200 kilobytes de saída.
 
-You can speed up your development times by having your app reload automatically any time your code changes. Automatic reloading can be enabled by selecting "Enable Live Reload" from the Developer Menu.
+## Ferramenta para Desenvolvedores React
 
-You may even go a step further and keep your app running as new versions of your files are injected into the JavaScript bundle automatically by enabling [Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html) from the Developer Menu. This will allow you to persist the app's state through reloads.
-
-> There are some instances where hot reloading cannot be implemented perfectly. If you run into any issues, use a full reload to reset your app.
-
-You will need to rebuild your app for changes to take effect in certain situations:
-
-* You have added new resources to your native app's bundle, such as an image in `Images.xcassets` on iOS or the `res/drawable` folder on Android.
-* You have modified native code (Objective-C/Swift on iOS or Java/C++ on Android).
-
-## In-app Errors and Warnings
-
-Errors and warnings are displayed inside your app in development builds.
-
-### Errors
-
-In-app errors are displayed in a full screen alert with a red background inside your app. This screen is known as a RedBox. You can use `console.error()` to manually trigger one.
-
-### Warnings
-
-Warnings will be displayed on screen with a yellow background. These alerts are known as YellowBoxes. Click on the alerts to show more information or to dismiss them.
-
-As with a RedBox, you can use `console.warn()` to trigger a YellowBox.
-
-YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored: `console.ignoredYellowBox = ['Warning: ...'];`.
-
-In CI/Xcode, YellowBoxes can also be disabled by setting the `IS_TESTING` environment variable.
-
-> RedBoxes and YellowBoxes are automatically disabled in release (production) builds.
-
-## Chrome Developer Tools
-
-To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu. This will open a new tab at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
-
-Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer Tools](https://developer.chrome.com/devtools). You may also access the DevTools using keyboard shortcuts (`⌘⌥I` on macOS, `Ctrl` `Shift` `I` on Windows). You may also want to enable [Pause On Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) for a better debugging experience.
-
-> Note: the React Developer Tools Chrome extension does not work with React Native, but you can use its standalone version instead. Read [this section](docs/debugging.html#react-developer-tools) to learn how.
-
-### Debugging using a custom JavaScript debugger
-
-To use a custom JavaScript debugger in place of Chrome Developer Tools, set the `REACT_DEBUGGER` environment variable to a command that will start your custom debugger. You can then select "Debug JS Remotely" from the Developer Menu to start debugging.
-
-The debugger will receive a list of all project roots, separated by a space. For example, if you set `REACT_DEBUGGER="node /path/to/launchDebugger.js --port 2345 --type ReactNative"`, then the command `node /path/to/launchDebugger.js --port 2345 --type ReactNative /path/to/reactNative/app` will be used to start your debugger.
-
-> Custom debugger commands executed this way should be short-lived processes, and they shouldn't produce more than 200 kilobytes of output.
-
-## React Developer Tools
-
-You can use [the standalone version of React Developer Tools](https://github.com/facebook/react-devtools/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
+Você pode usar [a versão independente da Ferramenta para Desenvolvedores React](https://github.com/facebook/react-devtools/tree/master/packages/react-devtools) para depurar a hierarquia do componente React.  Para usá-lo, instale o pacote `react-devtools` globalmente:
 
 ```
 npm install -g react-devtools
 ```
 
-Now run `react-devtools` from the terminal to launch the standalone DevTools app:
+Agora execute o `react-devtools` do terminal para iniciar o aplicativo DevTools autônomo:
 
 ```
 react-devtools
@@ -89,50 +42,49 @@ react-devtools
 
 ![React DevTools](img/ReactDevTools.png)
 
-It should connect to your simulator within a few seconds.
+Ele deve se conectar ao seu simulador dentro de alguns segundos.
 
-> Note: if you prefer to avoid global installations, you can add `react-devtools` as a project dependency. Add the `react-devtools` package to your project using `npm install --save-dev react-devtools`, then add `"react-devtools": "react-devtools"` to the `scripts` section in your `package.json`, and then run `npm run react-devtools` from your project folder to open the DevTools.
+> Nota: se você preferir evitar instalações globais, você pode adicionar `react-devtools` como uma dependência do projeto. Adicione o pacote `react-devtools` ao seu projeto usando `npm install --save-dev react devtools`, depois adicione `"react-devtools":"react-devtools"` ao `scripts` em seu `package.json` e depois execute `npm run react-devtools` na pasta do seu projeto para abrir o DevTools.
 
-### Integration with React Native Inspector
+### Integração com o React Native Inspector
 
-Open the in-app developer menu and choose "Show Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
+Abra o menu do desenvolvedor no aplicativo e escolha "Show Inspector". Ele exibirá uma sobreposição que permite tocar em qualquer elemento da interface do usuário e ver informações sobre ele:
 
 ![React Native Inspector](img/Inspector.gif)
 
-However, when `react-devtools` is running, Inspector will enter a special collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
+No entanto, quando o `react-devtools` estiver em execução, o Inspector entrará em um modo especial e, em vez disso, usará o DevTools como interface principal. Neste modo, clicar em algo no simulador mostrará os componentes relevantes nos DevTools:
 
 ![React DevTools Inspector Integration](img/ReactDevToolsInspector.gif)
 
-You can choose "Hide Inspector" in the same menu to exit this mode.
+Você pode escolher "Ocultar inspetor" no mesmo menu para sair desse modo.
 
-### Inspecting Component Instances
+### Inspeção de instâncias de componentes
 
-When debugging JavaScript in Chrome, you can inspect the props and state of the React components in the browser console.
+Quando depurar o JavaScript no Chrome, você pode inspecionar os acessórios e o estado dos componentes do React no console do navegador.
 
-First, follow the instructions for debugging in Chrome to open the Chrome console.
+Primeiro, siga as instruções para depuração no Chrome para abrir o console do Chrome.
 
-Make sure that the dropdown in the top left corner of the Chrome console says `debuggerWorker.js`. **This step is essential.**
+Certifique-se de que a lista suspensa no canto superior esquerdo do console do Chrome está dizendo `debuggerWorker.js`. **Esta etapa é essencial.**
 
-Then select a React component in React DevTools. There is a search box at the top that helps you find one by name. As soon as you select it, it will be available as `$r` in the Chrome console, letting you inspect its props, state, and instance properties.
+E então, selecione um componente React no React DevTools. Existe uma caixa de pesquisa no topo que ajuda você a encontrar um pelo nome. Assim que você selecioná-lo, ele estará disponível como `$r` no console do Google Chrome, permitindo que você inspecione suas propriedades, estado e instância.
 
 ![React DevTools Chrome Console Integration](img/ReactDevToolsDollarR.gif)
 
-## Performance Monitor
+## Monitor de Desempenho
 
-You can enable a performance overlay to help you debug performance problems by selecting "Perf Monitor" in the Developer Menu.
+Você pode habilitar uma sobreposição de desempenho para ajudá-lo a depurar problemas de desempenho selecionando "Perf Monitor" no Menu do Desenvolvedor.
 
 <hr style="margin-top:25px; margin-bottom:25px;"/>
 
-# Debugging in Ejected Apps
+#  Depuração em aplicativos ejetados
 
 <div class="banner-crna-ejected" style="margin-top:25px">
-  <h3>Projects with Native Code Only</h3>
+  <h3>Projetos com somente código nativo</h3>
   <p>
-    The remainder of this guide only applies to projects made with <code>react-native init</code>
-    or to those made with Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+   O restante deste guia aplica-se apenas a projetos feitos com <code>react-native init</code>
+    ou para aqueles feitos com Create React Native App, que já foram ejetados. Para
+    mais informações sobre ejetar, por favor, veja <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> em
+    o repositório React Native App.
   </p>
 </div>
 
