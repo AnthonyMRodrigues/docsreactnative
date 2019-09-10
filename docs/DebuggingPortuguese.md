@@ -8,7 +8,7 @@ next: performance
 previous: timers
 ---
 
-## Ativando Atalhos do Teclado
+## Enabling Keyboard Shortcuts
 O React Native suporta alguns atalhos de teclado no Simulador do iOS. Eles são descritos abaixo. Para ativá-los, abra o menu Hardware, selecione Teclado e verifique se "Connect Hardware Keyboard" está marcado.
 
 ## Acessando o menu do desenvolvedor no aplicativo
@@ -134,43 +134,43 @@ Você pode habilitar uma sobreposição de desempenho para ajudá-lo a depurar p
   </p>
 </div>
 
-## Acessando logs do console
+## Accessing console logs
 
-Você pode exibir os registros do console para um aplicativo iOS ou Android usando os seguintes comandos em um terminal enquanto o aplicativo está em execução:
+You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
 
 ```
 $ react-native log-ios
 $ react-native log-android
 ```
 
-Você também pode acessá-los através de `Debug → Open System Log...` no simulador de iOS ou executando`adb logcat *:S ReactNative:V ReactNativeJS:V` em um terminal enquanto um aplicativo Android estiver sendo executado em um dispositivo ou emulador .
+You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
 
-> Se você estiver usando o Create React Native App, os logs do console já aparecerão na mesma saída do terminal do empacotador.
+> If you're using Create React Native App, console logs already appear in the same terminal output as the packager.
 
-## Depuração em um dispositivo com ferramentas do desenvolvedor Chrome
+## Debugging on a device with Chrome Developer Tools
 
-> Se você estiver usando o Create React Native App, isso já está configurado para você.
+> If you're using Create React Native App, this is configured for you already.
 
-Em dispositivos iOS, abra o arquivo [`RCTWebSocketExecutor.m`](https://github.com/facebook/react-native/blob/master/Libraries/WebSocket/RCTWebSocketExecutor.m) e altere "localhost" para o endereço IP do seu computador, selecione "Debug JS Remotamente" no Menu do Desenvolvedor.
+On iOS devices, open the file [`RCTWebSocketExecutor.m`](https://github.com/facebook/react-native/blob/master/Libraries/WebSocket/RCTWebSocketExecutor.m) and change "localhost" to the IP address of your computer, then select "Debug JS Remotely" from the Developer Menu.
 
-Nos dispositivos Android 5.0+ conectados via USB, você pode usar o[`adb` command line tool](http://developer.android.com/tools/help/adb.html) para configurar o encaminhamento de porta do dispositivo para o seu computador:
+On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from the device to your computer:
 
 `adb reverse tcp:8081 tcp:8081`
 
-Como alternativa, selecione "Dev Settings" no Menu de desenvolvimento e atualize a configuração "Debug server host for device" para corresponder ao endereço IP do seu computador.
+Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
 
-> Se você encontrar algum problema, é possível que uma das suas extensões do Chrome interaja de formas inesperadas com o depurador. Tente desativar todas as suas extensões e reativá-las uma a uma até encontrar a extensão problemática.
+> If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.
 
-### Debugando com [Stetho](http://facebook.github.io/stetho/) no Android
+### Debugging with [Stetho](http://facebook.github.io/stetho/) on Android
 
-1. Em ```android/app/build.gradle```, adicione estas linhas no `dependencies` seção:
+1. In ```android/app/build.gradle```, add these lines in the `dependencies` section:
 
    ```gradle
    compile 'com.facebook.stetho:stetho:1.3.1'
    compile 'com.facebook.stetho:stetho-okhttp3:1.3.1'
    ```
 
-2. Em ```android/app/src/main/java/com/{yourAppName}/MainApplication.java```, adicione as seguintes importações:
+2. In ```android/app/src/main/java/com/{yourAppName}/MainApplication.java```, add the following imports:
 
    ```java
    import com.facebook.react.modules.network.ReactCookieJarContainer;
@@ -181,7 +181,7 @@ Como alternativa, selecione "Dev Settings" no Menu de desenvolvimento e atualize
    import java.util.concurrent.TimeUnit;
    ```
 
-3. Em ```android/app/src/main/java/com/{yourAppName}/MainApplication.java``` adicione as funções:
+3. In ```android/app/src/main/java/com/{yourAppName}/MainApplication.java``` add the function:
    ```java
    public void onCreate() {
          super.onCreate();
@@ -197,10 +197,10 @@ Como alternativa, selecione "Dev Settings" no Menu de desenvolvimento e atualize
    }
    ```
 
-4. Execute  ```react-native run-android ```
+4. Run  ```react-native run-android ```
 
-5. Em uma nova aba do Chrome, : ```chrome://inspect```, quando clicar em 'Inspecionar dispositivo' (aquele seguido por "Powered by Stetho").
+5. In a new Chrome tab, open: ```chrome://inspect```, then click on 'Inspect device' (the one followed by "Powered by Stetho").
 
-## Debugando código nativo
+## Debugging native code
 
-Quando trabalhar com código nativo, como ao escrever módulos nativos, você pode iniciar o aplicativo no Android Studio ou no Xcode e aproveite os recursos de depuração nativos (configuração de pontos de interrupção etc.) como você faria no caso de criar um aplicativo nativo padrão.
+When working with native code, such as when writing native modules, you can launch the app from Android Studio or Xcode and take advantage of the native debugging features (setting up breakpoints, etc.) as you would in case of building a standard native app.
