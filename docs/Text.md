@@ -1,8 +1,8 @@
 
 
-## Nested Text
+## Texto Aninhado
 
-Both iOS and Android allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
+Tanto iOS quanto Android permitem a exibição de texto formatado anotando os intervalos de uma sequência com formatação específica, como um texto em negrito ou colorido (`NSAttributedString` no iOS,` SpannableString` no Android). Na prática, este trabalho é muito tedioso. Para o React Native, decidimos usar um paradigma web para isso, onde você pode aninhar texto para conseguir o mesmo efeito.
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -21,11 +21,11 @@ export default class BoldAndBeautiful extends Component {
   }
 }
 
-// skip this line if using Create React Native App
+// pule esta linha se estiver usando Create React Native App
 AppRegistry.registerComponent('AwesomeProject', () => BoldAndBeautiful);
 ```
 
-Behind the scenes, React Native converts this to a flat `NSAttributedString` or `SpannableString` that contains the following information:
+Por detrás das cortinas, o React Native converte isto para `NSAttributedString` ou `SpannableString` que contém a seguinte informação:
 
 ```javascript
 "I am bold and red"
@@ -33,9 +33,9 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 9-17: bold, red
 ```
 
-## Nested Views (iOS Only)
+## Views Aninhadas (apenas iOS)
 
-On iOS, you can nest views within your Text component. Here's an example:
+No iOS, é possível aninhar views dentro do componente Text. Segue um exemplo:
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -53,22 +53,22 @@ export default class BlueIsCool extends Component {
   }
 }
 
-// skip this line if using Create React Native App
+// pule esta linha se estiver usando Create React Native App
 AppRegistry.registerComponent('AwesomeProject', () => BlueIsCool);
 ```
 
-> In order to use this feature, you must give the view a `width` and a `height`.
+> Para usar esta feature, você deve indicar para a view um `width` e um `height`.
 
 ## Containers
 
-The `<Text>` element is special relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
+O elemento `<Text>` tem um comportamento especial em relação ao layout: tudo o que está aninhado dele não está mais usando o layout flexbox, mas sim o layout de texto. Isso significa que os elementos dentro de um ` <Text> `não são mais retângulos, e quebram quando vêem o final da linha.
 
 ```javascript
 <Text>
   <Text>First part and </Text>
   <Text>second part</Text>
 </Text>
-// Text container: all the text flows as if it was one
+// Text container: todo o texto segue como se fosse único
 // |First part |
 // |and second |
 // |part       |
@@ -77,15 +77,15 @@ The `<Text>` element is special relative to layout: everything inside is no long
   <Text>First part and </Text>
   <Text>second part</Text>
 </View>
-// View container: each text is its own block
+// View container: cada texto é um bloco único
 // |First part |
 // |and        |
 // |second part|
 ```
 
-## Limited Style Inheritance
+## Herança de Estilo Limitada
 
-On the web, the usual way to set a font family and size for the entire document is to take advantage of inherited CSS properties like so:
+Em desenvolvimento Web, a maneira usual de definir família e tamanho de fonte para todo o documento é tirar proveito das propriedades CSS herdadas, como:
 
 ```css
 /* CSS, *not* React Native */
@@ -96,17 +96,17 @@ html {
 }
 ```
 
-All elements in the document will inherit this font unless they or one of their parents specifies a new rule.
+Todos os elementos no documento herdam esta fonte a não ser que eles ou um elemento pai especifiquem novas regras.
 
-In React Native, we are more strict about it: **you must wrap all the text nodes inside of a `<Text>` component**; you cannot have a text node directly under a `<View>`.
+No React Native, somos mais rigorosos quanto a isso: ** você deve agrupar todos os nós de texto dentro de um componente `<Text>` **; você não pode ter um nó de texto diretamente aninhado dentro de um `<View>`.
 
 ```javascript
-// BAD: will raise exception, can't have a text node as child of a <View>
+// RUIM: vai gerar uma exception, não é permitido texto dentro de uma <View>
 <View>
   Some text
 </View>
 
-// GOOD
+// BOM
 <View>
   <Text>
     Some text
@@ -114,16 +114,16 @@ In React Native, we are more strict about it: **you must wrap all the text nodes
 </View>
 ```
 
-You also lose the ability to set up a default font for an entire subtree. The recommended way to use consistent fonts and sizes across your application is to create a component `MyAppText` that includes them and use this component across your app. You can also use this component to make more specific components like `MyAppHeaderText` for other kinds of text.
+Você também perde a capacidade de configurar uma fonte padrão para uma subárvore inteira. A maneira recomendada de usar fontes e tamanhos consistentes em seu aplicativo é criar um componente `MyAppText` que os inclua e usar esse componente em seu aplicativo. Você também pode usar esse componente para criar componentes mais específicos, como `MyAppHeaderText`, para outros tipos de texto.
 
 ```javascript
 <View>
-  <MyAppText>Text styled with the default font for the entire application</MyAppText>
-  <MyAppHeaderText>Text styled as a header</MyAppHeaderText>
+  <MyAppText>Texto estilizado com a fonte padrão para toda a aplicação</MyAppText>
+  <MyAppHeaderText>Texto estilizado como um header</MyAppHeaderText>
 </View>
 ```
 
-Assuming that `MyAppText` is a component that simply renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
+Supondo que `MyAppText` é um componente que simplesmente transforma seus filhos em um componente `Text` com estilo, então `MyAppHeaderText` pode ser definido da seguinte forma:
 
 ```javascript
 class MyAppHeaderText extends Component {
@@ -137,9 +137,9 @@ class MyAppHeaderText extends Component {
 }
 ```
 
-Composing `MyAppText` in this way ensures that we get the styles from a top-level component, but leaves us the ability to add / override them in specific use cases.
+A composição de `MyAppText` dessa maneira garante que tenhamos os estilos de um componente de nível superior, mas nos deixa a capacidade de adicioná-los / substituí-los em casos de uso específicos.
 
-React Native still has the concept of style inheritance, but limited to text subtrees. In this case, the second part will be both bold and red.
+O React Native ainda tem o conceito de herança de estilo, mas limitado a subárvores de texto. Nesse caso, a segunda parte será em negrito e vermelho.
 
 ```javascript
 <Text style={{fontWeight: 'bold'}}>
@@ -150,8 +150,8 @@ React Native still has the concept of style inheritance, but limited to text sub
 </Text>
 ```
 
-We believe that this more constrained way to style text will yield better apps:
+Acreditamos que essa maneira mais restrita de estilizar o texto produzirá aplicativos melhores:
 
-- (Developer) React components are designed with strong isolation in mind: You should be able to drop a component anywhere in your application, trusting that as long as the props are the same, it will look and behave the same way. Text properties that could inherit from outside of the props would break this isolation.
+- (Desenvolvedor) Os componentes do React são projetados com forte isolamento em mente: você deve poder inserir um componente em qualquer lugar do seu aplicativo, confiando que, desde que os acessórios sejam os mesmos, eles terão a mesma aparência e comportamento. As propriedades de texto que poderiam ser herdadas de fora dos elementos pai quebrariam esse isolamento.
 
-- (Implementor) The implementation of React Native is also simplified. We do not need to have a `fontFamily` field on every single element, and we do not need to potentially traverse the tree up to the root every time we display a text node. The style inheritance is only encoded inside of the native Text component and doesn't leak to other components or the system itself.
+- (Implementador) A implementação do React Native também é simplificada. Não precisamos ter um campo `fontFamily` em cada elemento, e não precisamos percorrer a árvore até a raiz toda vez que exibirmos um nó de texto. A herança de estilo é codificada apenas dentro do componente de texto nativo e não vaza para outros componentes ou para o próprio sistema.
